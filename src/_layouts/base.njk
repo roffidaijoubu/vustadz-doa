@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <title>
+    {{title | safe}}
+    </title>
     {% include "head.njk" %} {% if site.env %}
     <!-- Capture the CSS content as a Nunjucks variable -->
     {% set css %}{% include "styles.min.css" %}{% endset %}
