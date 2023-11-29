@@ -1,6 +1,25 @@
 @import 'utils/_tailwind.css';
 @import 'utils/_accessibility.css';
+body,html {
+    scroll-behavior: smooth;
+}
 
-a {
-	@apply text-ws-blue-500 underline;
+
+@font-face {
+    font-family: 'Mushaf Quran';
+    src: url('./static/fonts/mushaf_quran.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Mushaf Arabic';
+    src: url('./static/fonts/mushaf_arabic.ttf') format('truetype');
+}
+
+
+.dua-item {
+    page-break-inside: avoid;
+}
+
+.dua-item:last-child {
+    border-bottom: none;
 }

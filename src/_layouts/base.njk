@@ -1,27 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        {% include "head.njk" %}
-        {% if site.env %}
-            <!-- Capture the CSS content as a Nunjucks variable -->
-            {% set css %}{% include "styles.min.css" %}{% endset %}
-            <style>
-                {{css | safe}}
-            </style>
-        {% else %}
-            <link rel="stylesheet" href="/static/styles.min.css">
-        {% endif %}
+  <head>
+    {% include "head.njk" %} {% if site.env %}
+    <!-- Capture the CSS content as a Nunjucks variable -->
+    {% set css %}{% include "styles.min.css" %}{% endset %}
+    <style>
+      {{css | safe}}
+    </style>
+    {% else %}
+    <link rel="stylesheet" href="/static/styles.min.css" />
+    {% endif %}
 
-        <!-- Try and serve Google Fonts in the most efficent way possible -->
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'"/>
-        <noscript>
-            <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet" type="text/css"/>
-        </noscript>
-    </head>
-    <body>
-        <a href="#main" class="skip-link">Skip to main content</a>
-        {{ content | safe }}
-    </body>
-    <script src="/static/app.min.js" defer></script>
+    <!-- Try and serve Google Fonts in the most efficent way possible -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap&family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap&family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://kit.fontawesome.com/4d3d6df96c.js" crossorigin="anonymous"></script>
+
+  </head>
+  <body>
+    {{ content | safe }}
+  </body>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="/static/app.min.js" defer></script>
 </html>

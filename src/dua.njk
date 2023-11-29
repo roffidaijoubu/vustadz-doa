@@ -1,0 +1,44 @@
+---
+layout: base.njk
+pagination:
+  data: duasList
+  size: 1
+  alias: dua
+permalink: "/{{ dua.name }}/"
+---
+
+<main class="flex relative">
+  <aside id="sideMenu" class="w-1/5 h-[100vh] overflow-y-scroll top-0 sticky hidden md:block">
+    <ul class="menu menu-compact bg-base-100 p-4">
+      {% for item in duasList %}
+      <li class="{% if dua.name == item.name %}bordered{% endif %} mb-1">
+        <a
+          href="/{{ item.name }}/"
+          class="{% if dua.name == item.name %}active{% endif %}"
+        >
+          {{ item.data.title | title }}
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </aside>
+
+  <article class="my-10 container px-8 md:px-0 mx-auto md:max-w-[800px]">
+    <h1 class="text-center font-playfair mb-2 text-4xl">
+      {{ dua.data.title | title }}
+    </h1>
+    <p class="text-center mb-10">{{ dua.data.description }}</p>
+    {% for item in dua.data.text %}
+    <div class="text-center mb-8 break-inside-avoid">
+      <p class="font-mushafQuran font-bold text-[18px] mb-2 print:pt-2">
+        {{ item.ar }}
+      </p>
+      <p class="italic mb-1 text-[1.1rem]">{{ item.tr }}</p>
+      <p class="">{{item.id}}</p>
+    </div>
+    {% endfor %}
+  </article>
+</main>
+
+{% include "partials/scrollToTopButton.njk" %} {% include
+"partials/scrollProgressIndicator.njk" %}
